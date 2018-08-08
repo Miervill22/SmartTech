@@ -27,6 +27,7 @@ import { AuthProvider } from '../providers/auth/auth';
     StatusBar,
     SplashScreen,
     Geolocation,
+
     
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider

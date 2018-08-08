@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -14,12 +9,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  user = {
+    name: 'tech',
+    pw: 'tech'
+  };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public authProvider: AuthProvider, private alertCtrl: AlertController) {
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
+  /*LOGIN*/ 
+  loginUser(){
+    this.authProvider.login(this.user.name, this.user.pw).then(success => {
+      if (success){
+        this.navCtrl.setRoot('MenuPage');
+    }
+  }).catch(err => {
+    let alert = this.alertCtrl.create({
+      title: 'Login failed',
+      message: 'Please check your credentials.',
+      buttons: ['OK']
+    });
+    alert.present();
+  });
+}
 }

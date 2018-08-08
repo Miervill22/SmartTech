@@ -1,14 +1,9 @@
 import { Component, ViewChild,ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { Geolocation ,GeolocationOptions ,Geoposition ,PositionError } from '@ionic-native/geolocation'; 
 
 
-/**
- * Generated class for the MapsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 declare var google;
 
 @IonicPage()
@@ -16,6 +11,7 @@ declare var google;
   selector: 'page-maps',
   templateUrl: 'maps.html',
 })
+/*maps */
 export class MapsPage {
  options: GeolocationOptions;
  currentPos : Geoposition;  

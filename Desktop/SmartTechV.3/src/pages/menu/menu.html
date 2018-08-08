@@ -1,0 +1,35 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Menu</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item detail-none block menuClose *ngFor="let p of pages" (click)="openPage(p.page)">
+        <ion-icon item-start [name]="p.icon"></ion-icon>
+        {{ p.title }}
+      </button>
+    </ion-list>
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-row align-items-center>
+        <ion-col>
+          {{ username }}
+        </ion-col>
+        <ion-col>
+          <button ion-button full clear icon-left (click)="logout()">
+            <ion-icon name="sign-out">
+            </ion-icon>
+            Logout</button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-menu>
+
+<ion-nav #content main [root]="rootPage"></ion-nav>
