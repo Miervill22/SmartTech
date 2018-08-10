@@ -8,10 +8,28 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { MyApp } from './app.component';
 import { AuthProvider } from '../providers/auth/auth';
 
+import { SignupPage } from '../pages/signup/signup';
+
+
+/**FIREBASE INTEGRATION */
+import firebase  from 'firebase';
+
+var config = {
+  apiKey: "AIzaSyD8st0IGcQ6iR4pHK17hH8qZHganpA_z_U",
+  authDomain: "smarttech-6a3b5.firebaseapp.com",
+  databaseURL: "https://smarttech-6a3b5.firebaseio.com",
+  projectId: "smarttech-6a3b5",
+  storageBucket: "smarttech-6a3b5.appspot.com",
+  messagingSenderId: "1056441819574"
+};
+firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    
+    SignupPage,
+    
     
     
   ],
@@ -21,7 +39,8 @@ import { AuthProvider } from '../providers/auth/auth';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp 
+    MyApp,
+    SignupPage 
   ],
   providers: [
     StatusBar,

@@ -24,7 +24,6 @@ $app-direction: ltr;
 
 
 
-
 // Named Color Variables
 // --------------------------------------------------
 // Named colors makes it easy to reuse colors on various components.
@@ -39,7 +38,15 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  favorite:   #F4C274
+  favorite:   #F4C274,
+  bgd:        #F7F2F0,
+  
+  twitter: (
+    base: #55acee,
+    contrast: #ffffff
+  )
+ 
+  
   
 );
 

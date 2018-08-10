@@ -1,4 +1,4 @@
-page-login {
+page-signup {
     ion-content{
         .scroll-content {
             background-color: map-get($colors, bgd )
@@ -8,11 +8,9 @@ page-login {
         background-color: map-get($colors, bgd )
     }
    .logo{
-       
-       margin-top: 50px;
-       margin-bottom: 30px;
-
-    
+       font-size:  25vh;
+       margin-top: 40px;
+       margin-bottom: 20px;
    }
    .rowStyle {
        background-color: white;
@@ -25,5 +23,4 @@ page-login {
            margin-right: 10px;
        }
    }
-
 }

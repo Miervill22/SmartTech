@@ -1,0 +1,34 @@
+<ion-header>
+
+    <ion-navbar color="bgd">
+    </ion-navbar>
+  
+  </ion-header>
+<ion-content padding>
+    <ion-item text-center no-lines>
+      <ion-icon ><img src= "./assets/imgs/Smart.png" /></ion-icon>
+      </ion-item>
+  
+      <ion-grid style="width: 75%;">
+          <ion-row class="rowStyle">
+              <ion-icon name="person" color="favorite"></ion-icon>
+            <ion-input type="text" placeholder="Your name" [(ngModel)]="name"></ion-input>
+          </ion-row>
+
+        <ion-row class="rowStyle">
+            <ion-icon name="mail" color="favorite"></ion-icon>
+          <ion-input type="email" placeholder="Your Email" [(ngModel)]="email"></ion-input>
+        </ion-row>
+  
+        <ion-row class="rowStyle">
+            <ion-icon name="key" color="favorite"></ion-icon>
+            <ion-input type="password" placeholder="Your Password" [(ngModel)]="password"></ion-input>
+        </ion-row>
+  
+        <ion-row>
+          <button ion-button block round outline color="dark" style="margin-top: 20px;" (click)="signup()">Sign Up</button>
+        </ion-row>
+          
+  </ion-grid>
+  <button ion-button  block clear color="twitter" (click)="goBack()">Already have an account? Log in.</button>
+  </ion-content>
