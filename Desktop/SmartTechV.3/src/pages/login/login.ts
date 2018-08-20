@@ -4,6 +4,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 import { SignupPage } from '../signup/signup';
 /**import firebase first before using */
 import firebase from 'firebase';
+import { MapsPage } from '../maps/maps';
 
 
 @IonicPage()
@@ -33,7 +34,7 @@ export class LoginPage {
         duration: 3000
       }).present();
 
-      /* this.navCtrl.setRoot(wala pako kabaw) */
+      this.navCtrl.setRoot(MapsPage)
     }).catch((err) => {
       console.log(err)
 
@@ -46,6 +47,7 @@ export class LoginPage {
   /**redirect to signup page */
   gotoSignup(){
     this.navCtrl.push(SignupPage);
+    
   }
   /*LOGIN*/ 
  /*  loginUser(){

@@ -7,12 +7,14 @@ import { Geolocation } from '@ionic-native/geolocation';
 
 import { MyApp } from './app.component';
 import { AuthProvider } from '../providers/auth/auth';
-
 import { SignupPage } from '../pages/signup/signup';
+import { MapsPage } from '../pages/maps/maps';
 
 
 /**FIREBASE INTEGRATION */
 import firebase  from 'firebase';
+import { AngularFireModule } from  "angularfire2";
+
 
 var config = {
   apiKey: "AIzaSyD8st0IGcQ6iR4pHK17hH8qZHganpA_z_U",
@@ -23,24 +25,27 @@ var config = {
   messagingSenderId: "1056441819574"
 };
 firebase.initializeApp(config);
+firebase.firestore().settings({ timestampsInSnapshots: true })
 
 @NgModule({
   declarations: [
     MyApp,
-    
     SignupPage,
+    MapsPage
     
     
     
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    SignupPage 
+    SignupPage,
+    MapsPage
   ],
   providers: [
     StatusBar,

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Nav, App } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
-
+import firebase from 'Firebase';
 
 
 @IonicPage()
@@ -16,7 +16,7 @@ export class MenuPage {
   @ViewChild(Nav) nav: Nav;
   constructor(public navCtrl: NavController, private authProvider: AuthProvider, private appCtrl: App) {
   }
-
+  
   /**array of pages */
 
   ionViewWillEnter() {
@@ -24,6 +24,7 @@ export class MenuPage {
     if(this.authProvider.isTech()){
       this.pages = [
         { title: 'Technician Dashboard', page: 'TechnicianPage', icon: 'home' }
+        
         /** need sya usa ka page */
       ];
       this.openPage('TechnicianPage');

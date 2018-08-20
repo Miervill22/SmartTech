@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import firebase from'firebase';
 import { isPresent } from '../../../node_modules/ionic-angular/umd/util/util';
+import { MapsPage } from '../maps/maps';
+import { AsyncAction } from '../../../node_modules/rxjs/scheduler/AsyncAction';
 
 
 @Component({
@@ -13,13 +15,16 @@ export class SignupPage {
   name: string = "";
   email: string = "";
   password: string = "";
+  role: string = "User";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public ToastCtrl: ToastController,
   public AlertCtrl: AlertController) {
+   
   }
 
   signup(){
     firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+    
     .then((data)=> {
 
       console.log(data)
@@ -27,6 +32,7 @@ export class SignupPage {
         /**first add user then updateprofile */
         newUser.updateProfile({
           displayName: this.name,
+          
           /**INSERT PHOTO HERE */
          photoURL: ""
         }).then(()=> {
@@ -40,7 +46,7 @@ export class SignupPage {
                 text: "OK",
                 handler:() => {
                   //navigate to the menu page
-                  /* this.navCtrl.setRoot(wala pako kabaw) */
+                  this.navCtrl.setRoot(MapsPage)
                 }
               }
             ]
@@ -57,6 +63,16 @@ export class SignupPage {
         duration: 3000
       }).present();
     })
+    firebase.firestore().collection("user").add({
+      role: this.role,
+      created: firebase.firestore.FieldValue.serverTimestamp(),
+      email: firebase.auth().currentUser.uid,
+      name: firebase.auth().currentUser.displayName
+    }).then((doc) =>{
+        console.log(doc)
+       }).catch((err) => {
+         console.log(err)
+       })
   }
   goBack(){
     this.navCtrl.pop();

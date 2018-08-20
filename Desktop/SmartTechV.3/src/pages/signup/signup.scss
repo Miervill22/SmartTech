@@ -1,11 +1,13 @@
 page-signup {
     ion-content{
         .scroll-content {
-            background-color: map-get($colors, bgd )
+            background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fa5f68), color-stop(100%, #feb455))
         }
     }
     .item {
-        background-color: map-get($colors, bgd )
+       border-color: rgba(0, 0, 0, 0);
+	    background-color: rgba(0, 0, 0, 0);
+	    color: white;
     }
    .logo{
        font-size:  25vh;
@@ -13,7 +15,7 @@ page-signup {
        margin-bottom: 20px;
    }
    .rowStyle {
-       background-color: white;
+       background-color: white ;
        padding-left: 10px;
        border-radius: 30px;
        margin-top: 10px;

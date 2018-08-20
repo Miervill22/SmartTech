@@ -55,7 +55,8 @@ addMap(lat,long){
   let mapOptions = {
   center: latLng,
   zoom: 14,
-  mapTypeId: google.maps.MapTypeId.ROADMAP
+  mapTypeId: google.maps.MapTypeId.HYBRID,
+  disableDefaultUI:true
   }
 
   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
